@@ -13,11 +13,16 @@ background-position: center;
 }
 nav{
     display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
     align-items: center;
     justify-content: space-between;
     padding-top: 40px;
     padding-left: 8%;
     padding-right: 8%;
+    padding-bottom: 10px;
+    background: #101010;
 }
 .logo{
     color:#fff;
@@ -48,19 +53,116 @@ nav ul li  a:hover{
   display: none;
   color: #f85b8d;
 }
+.subscribeForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: white;
+}
+#email{
+    border: 0;
+    background: #fff;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    outline: none;
+    color: black;
+    border-radius: 25px;
+}
+#submit{
+    width: 80px;
+    height: 30px;
+    background-color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.positiion{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    right: 5%;
+}
+#submit:hover{
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+#submit i{
+    color: black;
+    font-size: 10px;
+}
 .btn{
     background-color: #f85b8d;
     color: #fff;
     text-decoration: none;
     border: 2px solid transparent;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px 15px;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
     border-radius: 30px;
     cursor: pointer;
-    transition: transform .4s;
+    transition: 0.4s;
 }
 .btn:hover{
-    transform: scale(1.2);
+    background-color: transparent;
+    border: 2px solid #f85b8d;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+.thankYouMessage{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #858585;
+    position: absolute;
+    top: 50px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.subLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.subLink h2{
+    color: #101010;
+    transform: rotate(45deg);
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.subLink h2:hover{
+    color: #f85b8d;
+}
+.subscribeBtn{
+    background-color: #000;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid #f85b8d;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.subscribeBtn:hover{
+    background-color: #fff;
+    color: #000;
+    border: 2px;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
 }
 .content{
     position: absolute;
@@ -83,37 +185,128 @@ nav ul li  a:hover{
     letter-spacing: 2px;
     font-size: 20px;
 }
-.newsletter form{
-    width: 380px;
-    max-width: 100%;
-    position: relative;
+.submit{
+   visibility: visible;
 }
-.newsletter form input:first-child{
-    display: inline-block;
-    width: 100%;
-    padding: 14px 130px 14px 15px;
-    border: 2px solid #f85b8d;
-    outline: none;
-    border-radius: 30px;
-}
-.newsletter form input:last-child{
-    position: absolute;
-    display: inline-block;
+.submited{
+    display: flex;
     outline: none;
     border: none;
     padding: 10px 30px;
     border-radius: 30px;
     background-color: #f85b8d;
     color: #fff;
-    top: 6px;
-    right: 6px;
     transition: 0.4s ease-in;
+    margin-top: 20%;
 }
-.newsletter form input:last-child:hover{
-    background-color: transparent;
+.talk{
+    text-decoration: none;
+    color: #fff;
+}
+.submit:hover{
+    background-color: #fff;
     cursor: pointer;
     color: #101010;
     box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+/*style rule for sign up form from Js*/
+.submitActive{
+    visibility: hidden;
+}
+.sign-up{ 
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    visibility: hidden;
+    transition: 0.4s;
+    display: flex;
+    position: absolute;
+    color: #fcfcfc;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: fit-content;
+    background: #191919;
+    border-radius: 30px;
+    border: 2px solid #f85b8d;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+.show{
+    visibility: visible;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+/*style rule for sign up form from Js ended here*/
+.header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+}
+.cancel{
+    font-size: 50px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.cancel:hover{
+    color: #f85b8d;
+}
+.header h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500px;
+    margin-top: 20px;
+}
+.sign-up input[type = "name"], .sign-up input[type = "email"], .sign-up input[type = "new-password"]{
+    border: 2px solid #f85b8d;
+    background: none;
+    display: block;
+    margin: 10px;
+    text-align: left;
+    padding: 14px 35px;
+    outline: none;
+    color: white;
+    border-radius: 28px;
+    transition: 0.4s;
+}
+.sign-up input[type = "name"]:focus, .sign-up input[type = "email"]:focus, .sign-up input[type = "new-password"]:focus{
+    width: 290px;
+    background: #fcfc;
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+.sign-up input[type = "submit"]{
+    border: 2px solid #f85b8d;
+    background: #fcfcfc;
+    display: block;
+    margin: 15px;
+    text-align: left;
+    padding: 8px 25px;
+    outline: none;
+    color: #000;
+    border-radius: 28px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.sign-up input[type = "submit"]:hover{
+    border: 2px solid #fcfcfc;
+    padding: 8px 26px;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+.sign-up a{
+    text-decoration: none;
+    color: #fcfcfc;
+}
+.sign-up p{
+    margin-bottom: 15px;
+}
+.sign-up p a{
+    color: #fcfc;
+    font-weight: bold;
 }
 .about{
     width: 100%;
@@ -156,73 +349,69 @@ nav ul li  a:hover{
     letter-spacing: 1px;
     line-height: 28px;
     font-size: 18px;
-    margin-bottom: 45px;
+    margin-bottom: 20px;
 }
-button{
-    background-color: #f85b8d;
-    color: #fff;
-    text-decoration: none;
-    border: 2px solid transparent;
-    font-weight: bold;
-    padding: 13px 30px;
-    border-radius: 30px;
-    transition: .4s;
-}
-button:hover{
-    background-color: transparent;
-    border: 2px solid #f85b8d;
-    cursor: pointer;
-    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
-}
-.service{
-    background: #101010;
-    width: 100%;
-    padding: 100px 0px;
-}
+/*service style rules are here*/
 .title h2{
     color: #fff;
     font-size: 75px;
     width: 30px auto;
-    margin: 30px auto;
+    padding: 25px 0;
     text-align: center;
+    background: #101010;
 }
 .box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
+    --_spacer: 5%;
+    background: #101010;
+    display: grid;
+    padding: var(--_spacer) var(--_spacer);
+    gap: var(--_spacer);
+    grid-auto-flow: column;
+    grid-auto-columns: 350px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
 }
-.card{
-    height: fit-content;
-    width: 335px;
-    padding: 20px 35px;
+.box > *{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 300px;
+    padding: 10px;
     background: #191919;
-    border-radius: 20px;
-    margin: 15px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0px 0px 2px #000, 0px 0px 5px #858585;
+    border-radius: 30px 10px;
+    box-shadow: 0px 0px 3px #000, 0px 0px 5px #858585;
+}
+
+.scroll-snaps{
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--_spacer, 1rem);
+}
+/*.scroll-snaps > *{
+    scroll-snap-align: start;
+}*/
+::-webkit-scrollbar{
+    display: none;
 }
 .card i{
     font-size: 50px;
-    display: block;
     text-align: center;
-    margin: 25px 0px;
     color: #f85b8d;
 }
 .card h5{
     color: #fff;
     font-size: 23px;
-    margin-bottom: 15px;
+
 }
-.pra p{
+.card p{
     color: #fcfc;
     font-size: 16px;
     line-height: 27px;
-    margin-bottom: 25px;
 }
 .card .button{
+    justify-content: center;
+    align-items: center;
     background-color: #f85b8d;
     color: #fff;
     text-decoration: none;
@@ -238,6 +427,11 @@ button:hover{
     cursor: pointer;
     box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
 }
+.CardImg{
+    display: none;
+}
+/*style rules for service pop up are here*/
+
 .contact-me{
     width: 100%;
     height: 290px;
@@ -322,9 +516,43 @@ footer p:nth-child(2){
     bottom: 35px;
 }
 
+@media (max-width:985px){
+    .buggerActive{
+        display: inline-block;
+    }
+    .bugger{
+        display: flex;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top:60px ;
+        right: 0;
+        background-color: #101010;
+        width: 100%;
+        height: fit-content;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        gap: 10px;
+        color: #fff;
+        opacity: 0.99;
+        font-size: 25px;
+        transition: 0.4s ease-out;
+        clip-path: circle(0% at 95.3% 8.5%);
+        z-index: -1;
+    }
+    .ulActive{
+        clip-path: circle(140% at 95% -8%);
+    }
+}
+
 @media (max-width: 768px){
     .nav{
-        height: 70vh;
+        background-image: url(photos/webbanner2.png);
+        height: 100vh;
         width: 100%;
         }
         nav{
@@ -342,82 +570,142 @@ footer p:nth-child(2){
             justify-content: center;
             align-items: center;
             position: absolute;
-            top:50px ;
+            top:60px ;
             right: 0;
-            background-color: #f85b8d;
+            background-color: #101010;
             width: 100%;
-            height: 50%;
+            height: fit-content;
             border-bottom-right-radius: 20px;
             border-bottom-left-radius: 20px;
             gap: 10px;
             color: #fff;
-            opacity: 0.95;
+            opacity: 0.99;
             font-size: 25px;
-            z-index: 1;
             transition: 0.4s ease-out;
             clip-path: circle(0% at 95.3% 8.5%);
+            z-index: -1;
         }
         .ulActive{
             clip-path: circle(140% at 95% -8%);
         }
-        nav ul li  a:hover{
-            color: #101010;
-        }
-        .newsletter form{
+   
+        .content input{
+            margin-top: 0;
             margin-bottom: 30px;
         }
-        .about{
-            padding: 30px 0px;
-
+        .content h4{
+            letter-spacing: 0;
         }
-        .about img{ 
-            width: 350px;
+        .sign-up{
+            width: 270px;
         }
-     
-        .About-text{
-            width: 500px;
+        .show{
+            visibility: visible;
+            top: 47%;
+            transform: translate(-50%, -50%);
+        }
+        .header h1{
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .header h2{
+            font-size: 30px;
+        }
+        .sign-up input[type = "name"], .sign-up input[type = "email"], .sign-up input[type = "new-password"]{
+            margin: 9px;
+            padding: 10px 28px;
+            border-radius: 25px;
+        }
+        .sign-up input[type = "name"]:focus, .sign-up input[type = "email"]:focus, .sign-up input[type = "new-password"]:focus{
+            width: 250px;
+            border: 1px solid #000;
+            box-shadow: 0px 0px 3px #000, 0px 0px 10px #858585;
+        }
+        .sign-up input[type = "submit"]{
+            border: 1px solid #f85b8d;
+            margin: 10px;
+            padding: 7px 22px;
+            border-radius: 20px;
+        }
+        .sign-up input[type = "submit"]:hover{
+            border: 1px solid #fcfcfc;
+            padding: 7px 23px;
+            box-shadow: 0px 0px 3px #000, 0px 0px 10px #858585;
+        }
+        .sign-up p{
+            margin-bottom: 10px;
         }
         .box{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
+            min-height: 70Vh;
         }
 }
 
 
 @media (max-width: 620px){
     .nav{
-        height: 50vh;
+        background-image: url(photos/webphoneview.png);
+        height: 100vh;
         width: 100%;
         }
         .logo{
-            font-size: 15px;
-            letter-spacing: 1px;
+            font-size: 20px;
+            letter-spacing: 0.5px;
         }
         .btn{
             border: 1px solid transparent;
-            font-size: medium;
+            font-size: small;
             padding: 5px 10px;
-            border-radius: 30px;
+            border-radius: 15px;
+            width: fit-content;
             cursor: pointer;
-            transition: transform .4s;
+            transition: .4s;
+        }
+        .thankYouMessage{
+            gap: 3px;
+            top: 50px;
+            padding: 5px;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
+        #email{
+            border: 0;
+            background: #fff;
+            text-align: center;
+            padding: 5px;
+            outline: none;
+            color: black;
+            border-radius: 15px;
         }
         .content{
-            top: 35%;
+            top: 40%;
+            width: 100%;
+        }
+        .About-text h2{
+            color: #fff;
+            font-size: 75px;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+        }
+        .About-text h5{
+             color: #fff;
+             letter-spacing: 2px;
+             font-size: 22px;
+             margin-bottom: 25px;
+             text-transform: capitalize;
         }
         nav{ 
             padding-top: 20px;
             padding-left: 5%;
         }
         .content h1{
-            margin: 15px 0px;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
             font-size: 35px;
         }
         .content h3{
             font-size: 20px;
-            margin-bottom: 20px;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
         }
         .newsletter form{
             width: 300px;
@@ -541,7 +829,22 @@ footer p:nth-child(2){
             font-size: 12px;
             bottom: 30px;
         }
-
-
 }
- 
+@media (max-width:300px){
+    .logo{
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+    .btn{
+        border: 1px solid transparent;
+        font-size: small;
+        padding: 2px 5px;
+        border-radius: 15px;
+        width: fit-content;
+        cursor: pointer;
+        transition: .4s;
+    }
+    .bugger{
+        font-size: 20px;
+      }
+}
