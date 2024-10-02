@@ -1,126 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta content="head" charset='utf-8'>
+    <meta http-equiv="Cache-Control" max-age="31536000" content="no-cache, no-store, must-revalidate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinedu Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/d5a2a27062.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "Jb1uZ38OFndJo_QaG",
+    });
+   })();
+</script>
 </head>
 <body>
-    <!---nav section is here-->
-    <div class="nav" id="nav">
-        <nav>
-            <h2 class="logo"><span>My</span> Portfo<span>lio</span></h2>
+    <!----for nav-->
+    <div id="nav-bar" class="nav">
+        <nav >
+            <h1 class="logo"><span class="colored">My</span> portfo<span class="colored">lio</span></h1>
+
+            <div class="buger-controled">
             <ul>
-                <li><a href="#nav">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#service">services</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#home">home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#service">Our Services</a></li>
+                <li><a href="#contact">contact Us</a></li>
             </ul>
-            <div class="bugger"><i class="fa-solid fa-bars"></i></div>
-
-                <form class="subscribeForm" id="subscribeForm">
-               <label for="email" class="btn" id="btn" style="display: flex;">Subscribe</label>
-               <div class="positiion">
-            <input type="email" id="email" style="display: none;" name="email"  placeholder="Enter your email" required >
-            <button type="submit" id="submit" style="display: none;" ><i class="fa-solid fa-check"></i>Submit</button>
-        </div>
-           </form>
-           <div class="thankYouMessage" id="form" style="display:none;" >
-            <p>Thank you for subscribing! Please also subscribe to our YouTube channel</p>
-            <div class="subLink">
-                <a href="https://www.youtube.com/@ezemuonyechinedu8046?sub_confirmation=1" id="add" target="_blank">
-                    <button class="subscribeBtn">Subscribe</button>
-                </a>
-                <h2 id="cancel">+</h2>
-            </div>
-        </nav>
-
-        <div class="content">
-            <h4>Hello, my name is</h4>
-            <h1>Chinedu <span>Ezem</span> </h1>
-            <h3>I am a Web Developer</h3>
-            <input class="submit forNav submited" type="submit" name="submit" value="Lets Get Started">
-        </div>
-            <form class="sign-up">
-                <div class="header">
-                    <h1>Sign-up</h1> <h2 class="cancel">+</h2>
+            <!----for nav subscribe form-->
+            <form action="/submit_form" id="subscribeForm" class="subscribeForm" autocomplete="on">
+                <button type="button" class="button" id="subscribe" >Subscribe</button>
+                <div class="navSubPosition">
+                    <input type="email" name="email" id="emailSub" autocomplete="on"  class="subEmail" placeholder="Enter your email">
+                    <button type="submit" id="submitSub" class="submitSub">Submit</button>
                 </div>
-                <input type="name" name="name"  placeholder="what is your name">
-                <input type="email" name="email"  placeholder="Enter your email">
-                <input type="new-password" name="password"  placeholder="Enter password">
-                <input type="new-password" name="confirm-password"  placeholder="confirm password">
-                <a href="#">Forgoten Password?</a>
-                <input type="submit" name="submit" value="Enter">
-                <p>Signed up already?</p>
-                <p>click <a href="#">here</a> to Login</p>
             </form>
+            </div>
+            <div class="bugger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <!----for nav thank you massage from here is in js-->
+        </nav>
+        <div class="details ">
+            <h4>Hello, my name is</h4>
+            <h1>chinedu <span class="colored">Ezem</span></h1>
+            <h3>and I am a web developer</h3>
+            <button type="button" class="submit forNav submited">Let's get started</button>
+            <div class="welcomeMassage"></div>
+        </div>
     </div>
+    <form class="sign-up" id="signUpForm">
+            <div class="header">
+                <h1>Register</h1> <h5 class="cancel sign-up-cancel canceled">+</h5>
+            </div>
+            <input type="name" id="name" name="name" writingsuggestions="true" autocomplete="on"  placeholder="what is your name" required>
+            <span id="errorForName" class="error"></span>
+            <input type="email" id="email" name="email" writingsuggestions="true" autocomplete="on"  placeholder="Enter your email" required>
+            <span id="errorForEmail" class="error"></span>
+            <input type="new-password" id="newPassword" name="password" writingsuggestions="true" autocomplete="on"  placeholder="Enter password" required>
+            <span id="errorForPswd" class="error"></span>
+            <input type="new-password" id="confirmPassword" name="confirm-password" writingsuggestions="true" autocomplete="on" placeholder="confirm password" required>
+            <span id="errorForNewPswd" class="error"></span>
+            <input type="submit" name="submit" id="submitSignUpForm" writingsuggestions="true" value="Enter">
+            <p>Signed up already?</p>
+            <p class="click-here">click <a href="#signInForm">here</a> to Login</p>
+        </form>
 
-     <!---About section is here-->
-     <section class="about" id="about">
+        <form class="sign-in" id="signInForm">
+            <div class="header">
+                <h1>Sign-in</h1> <span class="cancel sign-in-cancel canceled" >+</span>
+            </div>
+            <span id="errorFor-login-form" class="error"></span>
+            <input id="loginEmail" type="email" name="email" writingsuggestions="true" autocomplete="on" placeholder="Enter your email">
+            <span id="errorFor-input-Name" class="error"></span>
+            <input id="loginPassword" type="password" name="password" writingsuggestions="true" autocomplete="on" placeholder="Enter password">
+            <span id="errorFor-input-password" class="error"></span>
+            <a href="#">Forgoten Password?</a>
+            <input type="submit" name="submit" writingsuggestions="true" autocomplete="on" value="Enter">
+            <p>is this your first time visiting?</p>
+            <p class="click-here">click <a href="#signUpForm">here</a> to sign up</p>
+        </form>
+        <form class="send-massage" id="send-massage">
+            <h4 id="userName"></h4>
+            <p>what service do you want us to render?</p>
+            <span id="gnrlMsgName" class="error"></span>
+            <input type="text" id="msg-name" writingsuggestions="true" placeholder="Your name">
+            <span id="error-fr-msg-name" class="error"></span>
+            <input type="email" id="msg-email"  writingsuggestions="true" placeholder="Your registered email">
+            <span id="error-fr-msg-email" class="error"></span>
+            <input type="text" id="subject-msg"  writingsuggestions="true" placeholder="Subject">
+            <span id="error-fr-msg-subject" class="error"></span>
+            <textarea name="text" id="msg-text" writingsuggestions="true" rows="5" placeholder="Leave a message"></textarea>
+            <div class="send-msg-control">
+                <button type="submit" id="submit" class="send-msg-btn">Submit</button>
+                <button type="button" id="Send-msg-cancel" class="cancel send-msg-btn">Cancel</button>
+            </div>
+           </form>
+
+       <!---About section is here-->
+       <section class="about" id="about">
+        <div class="title">
+            <h2>About Us</h2>
+         </div>
         <div class="main">
             <img src="photos/Santex2-removebg-preview.png" alt="Chinedu Ezem">
             <div class="About-text">
-                <h2>About me</h2>
-                <h5>Developer <span>& Designer</span></h5>
+                <h5>Developer <span class="colored">& Designer</span></h5>
                 <p>
                     I am a full stack web developer and the CEO of E-liyon design whose interest is to provide online 
                     presence to all businesses in Africa and world wide both big and small thereby making the world know the existence 
-                    of even the smallest business from the most rural area. I can provide clean code and pixel perfect design. i aslo 
+                    of even the smallest business from the most rural area. I can provide clean code and pixel perfect design. i also 
                     make the website actractive and more interactive with web animations. A responsive design makes your website accessible 
                     to all users, regardless of their device.
                 </p>
-                <a href="#nav" class="talk"><button class="submit forAbout submited">Let's talk</button></a>
+                <a href="#" class="talk"><button class="submit forAbout submited">Let's talk</button></a>
             </div>
         </div>
      </section>
 
-     <!---service section is here-->
-     <div class="title">
+          <!---service section is here-->
+<div class="service">
+    <div class="title">
         <h2>Our Services</h2>
      </div>
-         <div class="box scroll-snaps">
-            
-            <div class="card">
-                <i class="fa-solid fa-bars"></i>
-                <h5>Web development</h5>
-                    <p>Every website should be built with two primary goals:
-                        firstly, it needs to work across all devices. Secondly,
-                        it needs to be fast as possible.
-                    </p>
-                <button class="button">Read More</button>
-            </div>
+        <div class="box scroll-snaps">
 
-         </div>
-     
+                <div class="card">
+                    <h5>End-to-End Development</h5>
+                    <img src="photos/END-TO-END-Development.png" alt="webbanner2">
+                        <p>This involves handling both front-end and back-end tasks, ensuring a 
+                            seamless user experience<span class="dots">...</span>
+                            <span class="more">
+                                 and robust functionality. This approach covers 
+                            the entire software development lifecycle, from initial concept to deployment 
+                            and maintenance. It includes designing user interfaces, developing server-side 
+                            logic, integrating databases, and ensuring that all components work together harmoniously.
+                             By managing both ends, developers can maintain consistency, streamline communication, and 
+                             reduce the risk of integration issues.
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
 
-     <!----Contact Me section is here-->
-     <div class="contact-me" id="contact">
-        <p>Let Me Get You A Beautiful Website.</p>
-        <a href="#" class=" submit forHire button-two">Hire Me</a>
-     </div>
-     
-     <!----footer start-->
-     <footer>
-        <p>Chinedu Ezemuonye</p>
-        <p>for HTML, CSS, and other coding tutorial - please
-            click on the link bellow to subscribe to my channel:
-        </p>
-         <div class="social">
-             <a href="https://www.linkedin.com/in/chineduezemuonye/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://web.facebook.com/profile.php?id=100083717382670" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/santexdlyon/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@ezemuonyechinedu8046?sub_confirmation=1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://wa.me/+2348163895833" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-         </div>
-         <p class="end">© 2024 Chinedu Ezemuonye. All rights reserved.</p>
-     </footer>
+                <div class="card">
+                    <h5>API Dev & Integration</h5>
+                    <img src=" photos/API-Integration.jpeg" alt="webbanner2">
+                        <p>That connects different software systems, allowing them to 
+                            communicate and share data<span class="dots">...</span>
+                            <span class="more">
+                                This process involves using APIs (Application 
+                            Programming Interfaces) to enable seamless data transfer between front-end 
+                            interfaces and back-end services. API integration is crucial for creating 
+                            scalable, efficient applications that can leverage third-party services, 
+                            such as payment gateways or social media platforms. It enhances functionality, 
+                            improves user experience, and enables automation of business processes
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
 
-     <script src="script.js"></script>
+                <div class="card">
+                    <h5>DB Design & Management</h5>
+                    <img src="photos/Database-Design.jpg " alt="webbanner2">
+                        <p>Database design and management involve creating and maintaining databases that 
+                            store application<span class="dots">..</span>
+                            <span class="more">
+                                data. This includes defining the database schema, establishing 
+                                relationships between data entities, and ensuring data integrity and security. 
+                                Effective database management ensures efficient data retrieval, minimizes redundancy, 
+                                and supports the application's performance and scalability. It also involves regular 
+                                maintenance tasks, such as backups, indexing, and performance tuning3.
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
+
+                <div class="card">
+                    <h5>Server and Hosting Mg.</h5>
+                    <img src="photos/Server-and-hosting-management.jpg " alt="webbanner2">
+                        <p>It encompass setting up, configuring, and maintaining
+                             servers that host applications.<span class="dots">..</span>
+                            <span class="more">
+                                This includes selecting appropriate hardware,
+                              installing necessary software, and ensuring optimal performance and security.
+                               Server management also involves monitoring server health, applying updates 
+                               and patches, and handling backups and disaster recovery. Effective server 
+                               management ensures high availability, reliability, and security of the hosted 
+                               applications.
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
+
+                <div class="card">
+                    <h5>Version Control & Collab.</h5>
+                    <img src="photos/Version_control_n_collaboration.png" alt="webbanner2">
+                        <p>Version control systems, like Git, are essential for managing code changes and 
+                            facilitating collaboration<span class="dots">...</span>
+                            <span class="more">
+                                among developers. These systems track changes to 
+                                the codebase, allowing multiple developers to work on the same project 
+                                simultaneously without conflicts. Version control enables branching and merging,
+                                 which helps in managing different features and bug fixes independently. It also
+                                  maintains a history of changes, making it easier to revert to previous versions
+                                   if needed.
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
+
+                <div class="card">
+                    <h5>Testing & Debugging</h5>
+                    <img src=" photos/Tsting-Debugging.png" alt="webbanner2">
+                        <p>This are critical for ensuring the quality and reliability of software
+                             applications. This process<span class="dots">...</span>
+                            <span class="more">
+                                involves various types of testing, such as unit testing,
+                              integration testing, and user acceptance testing, to identify and fix bugs. Debugging 
+                              tools help developers pinpoint issues in the code and resolve them efficiently. 
+                              Comprehensive testing and debugging ensure that the application meets the specified 
+                              requirements and performs well under different conditions.
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
+
+                <div class="card">
+                    <h5>D&C Integration</h5>
+                    <img src="photos/continuous-integration.png " alt="webbanner2">
+                        <p>Deployment involves releasing the application to a production environment, while 
+                            continuous<span class="dots">..</span>
+                            <span class="more">
+                                integration (CI) automates the process of integrating code changes 
+                            into the main codebase. CI tools run automated tests to ensure that new code 
+                            does not break existing functionality. Deployment pipelines automate the steps 
+                            required to deploy the application, reducing manual errors and speeding up the 
+                            release process. This approach ensures that the application is always in a deployable
+                             state and can be released frequently and reliably
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
+
+                <div class="card">
+                    <h5>Project Management</h5>
+                    <img src=" photos/Project-Management-5.jpg" alt="webbanner2">
+                        <p>Project management in software development involves planning, organizing, and
+                             overseeing the<span class="dots">...</span>
+                            <span class="more">
+                                development process to ensure timely delivery of features. 
+                                This includes defining project goals, creating timelines, allocating resources,
+                                 and managing risks. Effective project management ensures that the development 
+                                 team stays on track, meets deadlines, and delivers a high-quality product. It 
+                                 also involves communication and collaboration with stakeholders to align the 
+                                 project with business objectives.
+                            </span>
+                        </p>
+                        <label class="read-more-btn button">Read more</label>
+                </div>
+
+    
+        </div>
+</div>
+
+<!----contact me section-->
+<div class="contact-me" id="contact">
+    <p>Let Me Get You A Beautiful Website<span>!!!</span></p>
+    <a href="#" class=" submit forHire submited">Hire Me</a>
+ </div>
+
+ <!----footer section-->
+<footer>
+    <h3>Chinedu Ezemuonye</h3>
+    <p>for HTML, CSS, and other coding tutorial - please click on the link bellow to subscribe to my channel;</p>
+
+    <div class="social-handle">
+        <a class="lin-fb" href="https://www.linkedin.com/in/chineduezemuonye/" target="blank" title="Connect to my linkedin account"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="lin-fb" href="https://web.facebook.com/profile.php?id=100083717382670" target="blank" title="Connect to my facebook page"><i class="fa-brands fa-facebook"></i></a>
+        <a class="instagram" href="https://www.instagram.com/santexdlyon/" target="blank" title="Connect with me on Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="youtube" href="https://www.youtube.com/@ezemuonyechinedu8046?sub_confirmation=1" target="blank" title="subscribe to my youtube channel"><i class="fa-brands fa-youtube"></i></a>
+        <a class="whatsapp" href="https://wa.me/+2348163895833" target="blank" title="Chat with me on whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <p class="end">© 2024 Chinedu Ezemuonye. All rights reserved.</p>
+</footer>         
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
