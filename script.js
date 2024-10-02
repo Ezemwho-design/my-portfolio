@@ -5,6 +5,27 @@ bugger.onclick = () =>{
     document.querySelector(".bugger").classList.toggle("buggerActive");
     document.querySelector(".buger-controled").classList.toggle("bgControlActive");
 }
+const regLog = document.querySelectorAll(".change");
+regLog.forEach(function (each){
+    each.onclick = (list)  => {
+        change = list.currentTarget.classList;
+        if (change.contains("register")){
+            console.log("register change");
+            signUp.style.display = 'none';
+            signIn.style.display = 'flex';
+        }
+        if(change.contains("login")){
+            console.log("login change");
+            signUp.style.display = 'flex';
+            signIn.style.display = 'none';
+        }
+    }
+})
+
+const leaveMsg = document.querySelector(".leaveMsg");
+leaveMsg.onclick = () =>{
+    sendMessage.style.display = 'flex';
+}
 
 const SignUpForm = document.getElementById('signUpForm');
 const signInForm = document.getElementById('signInForm');
@@ -285,47 +306,22 @@ sendMsgForm.addEventListener('submit', async function(event) {
     const subjectMsg = document.getElementById('subject-msg').value;
 
     const gnrlMsgName = document.getElementById('gnrlMsgName');
-    const errorFrmsgName = document.getElementById('error-fr-msg-name');
-    const errorFrmsgEmail = document.getElementById('error-fr-msg-email');
 
     // Clear previous error messages
     gnrlMsgName.innerHTML = "";
-    errorFrmsgName.innerHTML = "";
-    errorFrmsgEmail.innerHTML = "";
-
-    // Retrieve existing users from localStorage
-    let basket = JSON.parse(localStorage.getItem("user" || "allSendMsg")) || [];
     
     // Convert the name to lower case
     const inputName = msgName.toLowerCase();
     
+    if(!msgName || !msgEmail || !msgText || !subjectMsg){
+        gnrlMsgName.innerHTML = "All form must be filled";
+    }else{
     let allSendMsg  = {
         name: inputName,
         email: msgEmail,
         service: subjectMsg,
         text: msgText
     }
-    // Check if any of the form fields are empty
-    if (!allSendMsg.name || !allSendMsg.email || !allSendMsg.service || !allSendMsg.text) {
-        gnrlMsgName.innerHTML = "All form fields must be filled";
-        //console.log('no user');
-        return; // Exit the function if any field is empty
-    }
-    
-    // Find the user in the basket
-    let user = basket.find((x) => x.name === allSendMsg.name);
-    
-    if (!user) {
-        errorFrmsgName.innerHTML = "This name is not registered yet.";
-        //console.log("Incorrect name");
-    } else if (user.email !== allSendMsg.email) {
-        errorFrmsgEmail.innerHTML = "This email is not registered.";
-        //console.log("Incorrect email");
-    } else {
-        basket.push(allSendMsg);
-        localStorage.setItem("allSendMsg", JSON.stringify(basket));
-        // User exists and name matches
-
         //service and template id from emailjs.com
         const serviceID = "service_zpnnl5f";
         const templateID = "template_rnpnazc";
@@ -349,7 +345,8 @@ sendMsgForm.addEventListener('submit', async function(event) {
          nav.style.filter = 'none';
         this.reset();
     }
-});
+    }
+);
 
 //readmore button for service section in HTML
 const readMore = document.querySelectorAll('.read-more-btn');  

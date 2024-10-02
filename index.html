@@ -21,7 +21,7 @@
 <body>
     <!----for nav-->
     <div id="nav-bar" class="nav">
-        <nav >
+        <nav>
             <h1 class="logo"><span class="colored">My</span> portfo<span class="colored">lio</span></h1>
 
             <div class="buger-controled">
@@ -45,7 +45,8 @@
             </div>
             <!----for nav thank you massage from here is in js-->
         </nav>
-        <div class="details ">
+        <button type="button" class="leaveMsg">Leave a message</button>
+        <div class="details" id="home">
             <h4>Hello, my name is</h4>
             <h1>chinedu <span class="colored">Ezem</span></h1>
             <h3>and I am a web developer</h3>
@@ -67,7 +68,7 @@
             <span id="errorForNewPswd" class="error"></span>
             <input type="submit" name="submit" id="submitSignUpForm" writingsuggestions="true" value="Enter">
             <p>Signed up already?</p>
-            <p class="click-here">click <a href="#signInForm">here</a> to Login</p>
+            <p class="click-here">click <a class="change register">here</a> to Login</p>
         </form>
 
         <form class="sign-in" id="signInForm">
@@ -79,21 +80,18 @@
             <span id="errorFor-input-Name" class="error"></span>
             <input id="loginPassword" type="password" name="password" writingsuggestions="true" autocomplete="on" placeholder="Enter password">
             <span id="errorFor-input-password" class="error"></span>
-            <a href="#">Forgoten Password?</a>
+            <a href="#" class="forgoten-psw">Forgoten Password?</a>
             <input type="submit" name="submit" writingsuggestions="true" autocomplete="on" value="Enter">
             <p>is this your first time visiting?</p>
-            <p class="click-here">click <a href="#signUpForm">here</a> to sign up</p>
+            <p class="click-here">click <a class="change login">here</a> to sign up</p>
         </form>
         <form class="send-massage" id="send-massage">
             <h4 id="userName"></h4>
             <p>what service do you want us to render?</p>
             <span id="gnrlMsgName" class="error"></span>
             <input type="text" id="msg-name" writingsuggestions="true" placeholder="Your name">
-            <span id="error-fr-msg-name" class="error"></span>
             <input type="email" id="msg-email"  writingsuggestions="true" placeholder="Your registered email">
-            <span id="error-fr-msg-email" class="error"></span>
             <input type="text" id="subject-msg"  writingsuggestions="true" placeholder="Subject">
-            <span id="error-fr-msg-subject" class="error"></span>
             <textarea name="text" id="msg-text" writingsuggestions="true" rows="5" placeholder="Leave a message"></textarea>
             <div class="send-msg-control">
                 <button type="submit" id="submit" class="send-msg-btn">Submit</button>
@@ -123,7 +121,7 @@
      </section>
 
           <!---service section is here-->
-<div class="service">
+<div class="service" id="service">
     <div class="title">
         <h2>Our Services</h2>
      </div>
