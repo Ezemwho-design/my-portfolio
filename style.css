@@ -29,6 +29,24 @@ nav{
 }
 .logo{
     letter-spacing: 2px;
+    animation: animating 2s linear infinite;
+}
+@keyframes animating {
+    0%{
+        color: #af6c6c;
+    }
+    25%{
+        color: #9870c5;
+    }
+    50%{
+        color: #6377ec;
+    }
+    75%{
+        color: #70c3e4;
+    }
+    100%{
+        color: #70dab1;
+    }
 }
 .colored{
     color: #f85b8d;
@@ -163,13 +181,14 @@ nav ul li a:hover{
     padding: 8px;
     border-radius: 7px;
     background: #fff;
-    position: absolute;
+    position: fixed;
     top: 15%;
     left: 5%;
     cursor: pointer;
     transform-style: preserve-3d;
     animation: animate 2s linear infinite;
     box-shadow: 0px 0px 3px #000, 0px 0px 10px #858585;
+    z-index: 1000;
 }
 @keyframes animate {
     0%{
