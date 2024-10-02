@@ -20,9 +20,12 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: fixed;
+    width: 100%;
     background: #101010;
     padding: 20px 0;
     color: #fff;
+    z-index: 100;
 }
 .logo{
     letter-spacing: 2px;
@@ -90,8 +93,8 @@ nav ul li a:hover{
     flex-direction: column;
     gap: 7px;
     position: absolute;
-    top: 9%;
-    right: 2%;
+    top: 60px;
+    right: 5%;
     align-items: center;
     justify-content: center;
 }
@@ -712,6 +715,14 @@ footer{
         align-items: center;
         width: 100%;
         gap: 10px;
+    }
+    .navSubPosition{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        position: relative;
+        top: 0;
+
     }
     .bgControlActive{
         clip-path: circle(140% at 95% -8%);
