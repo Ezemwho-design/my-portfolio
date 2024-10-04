@@ -506,10 +506,13 @@ display: none;
     align-items: center;
 }
 .about img{ 
-    height: 70vh;
-    width: 400px;
+    height: 400px;
+    width: 350px;
     border: 10px solid #fcfc;
     border-radius: 20px 0;
+    filter: saturate(50%);
+    background-image: linear-gradient(to bottom, #3e4a70, #8d4672);
+
 }
 .About-text{
     width: 550px;
@@ -698,7 +701,7 @@ footer{
 }
 /*ABout section*/
 .about img{ 
-    height: 70vh;
+    height: 350px;
     width: 300px;
 }
 .About-text{
@@ -842,7 +845,7 @@ footer{
         padding-top: 10px;
     }
     .about img{ 
-        height: 350px;
+        height: 400px;
         width: 300px;
     }
     .About-text{
@@ -884,7 +887,7 @@ footer{
         font-weight: bold;
     }
     .about img{ 
-        height: 300px;
+        height: 350px;
         width: 100%;
     }
     .title{
